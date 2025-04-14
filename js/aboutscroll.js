@@ -1,13 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Header scroll effect
     const header = document.querySelector('header');
-    const scrollThreshold = 50;
+    const heroSection = document.querySelector('.about-hero');
+    const navbar = document.querySelector('.navbar');
 
     function handleScroll() {
-        if (window.scrollY > scrollThreshold) {
+        const heroHeight = heroSection.offsetHeight;
+        const scrollPosition = window.scrollY;
+
+        if (scrollPosition > heroHeight) {
             header.classList.add('scrolled');
+            navbar.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
+            navbar.classList.remove('scrolled');
         }
     }
 

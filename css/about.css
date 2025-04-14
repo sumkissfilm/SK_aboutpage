@@ -1306,6 +1306,41 @@ footer {
     transform: scale(1.05);
 }
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.story-image:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+}
+
+.overlay-content span {
+    font-size: 1.2rem;
+    font-weight: 300;
+    padding: 0.5rem 1rem;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.story-image:hover .overlay-content span {
+    transform: scale(1.1);
+}
+
 .story-text {
     text-align: left;
     opacity: 0;
@@ -1348,68 +1383,23 @@ footer {
     left: 0;
 }
 
-/* Philosophy Section */
-.about-philosophy {
-    padding: 100px 0;
-    background-color: #f9f9f9;
-}
-
-.philosophy-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    margin-top: 4rem;
-}
-
-.philosophy-item {
-    text-align: center;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-
-.philosophy-item .icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
-    background: rgba(247, 188, 81, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.philosophy-item .icon i {
-    font-size: 2rem;
-    color: #f7bc51;
-}
-
-.philosophy-item h3 {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.philosophy-item p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.6;
-}
-
 /* Team Section */
 .about-team {
     padding: 100px 0;
     background-color: #fff;
 }
 
+.about-team .container {
+    max-width: 900px;  /* 限制容器最大寬度 */
+}
+
+.about-team .col-md-5 {
+    max-width: 320px;  /* 限制每個成員卡片的最大寬度 */
+}
+
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     margin-top: 4rem;
 }
@@ -1428,11 +1418,17 @@ footer {
 
 .member-image {
     position: relative;
-    padding-top: 125%;
+    padding-top: 125%; /* 4:5 ratio */
     overflow: hidden;
 }
 
 .member-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.6s ease;
 }
 
@@ -1446,28 +1442,101 @@ footer {
     left: 0;
     right: 0;
     background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    padding: 2rem;
+    padding: 1.5rem;  /* 稍微減少內邊距 */
     color: #fff;
-    transform: translateY(100%);
-    transition: transform 0.6s ease;
 }
 
 .member-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;  /* 稍微縮小標題大小 */
     font-weight: 300;
     margin-bottom: 0.5rem;
 }
 
 .member-info .title {
-    font-size: 1rem;
+    font-size: 0.9rem;  /* 稍微縮小文字大小 */
     color: #f7bc51;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .member-info .description {
     font-size: 0.9rem;
     line-height: 1.6;
     opacity: 0.9;
+}
+
+@media (max-width: 991px) {
+    .about-team .container {
+        max-width: 700px;  /* 平板尺寸時的容器寬度 */
+    }
+    
+    .about-team .col-md-5 {
+        max-width: 280px;  /* 平板尺寸時的卡片寬度 */
+    }
+}
+
+@media (max-width: 768px) {
+    .about-team .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    .about-team .row {
+        margin: 0 -8px;
+    }
+    
+    .about-team .col-md-5 {
+        max-width: 50%;
+        padding: 0 8px;
+        margin: 0 auto;
+    }
+    
+    .team-member {
+        margin-bottom: 1rem;
+    }
+    
+    .member-image {
+        padding-top: 125%;
+    }
+    
+    .member-info {
+        padding: 1rem;
+    }
+    
+    .member-info h3 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .member-info p {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-team .container {
+        padding: 0 10px;
+    }
+    
+    .about-team .row {
+        margin: 0 -5px;
+    }
+    
+    .about-team .col-md-5 {
+        padding: 0 5px;
+    }
+    
+    .member-info {
+        padding: 0.75rem;
+    }
+    
+    .member-info h3 {
+        font-size: 0.9rem;
+    }
+    
+    .member-info p {
+        font-size: 0.75rem;
+    }
 }
 
 /* Contact Section */
@@ -1574,7 +1643,6 @@ footer {
     }
 
     .story-grid,
-    .philosophy-grid,
     .team-grid {
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
@@ -1607,10 +1675,13 @@ footer {
         text-align: center;
     }
 
-    .philosophy-grid,
     .team-grid,
     .contact-info {
         grid-template-columns: 1fr;
+    }
+    
+    .member-image {
+        padding-top: 125%; /* Maintain 4:5 ratio on mobile */
     }
 }
 
@@ -1632,4 +1703,39 @@ footer {
 
 .bg-gradient {
     background: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+
+/* Custom Title Styles */
+.section-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #333;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background-color: #f7bc51;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
 }

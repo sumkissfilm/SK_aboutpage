@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.service-card, .work-item').forEach(el => {
+        document.querySelectorAll('.service-card, .work-item').forEach(el => {
         observer.observe(el);
     });
 }); 

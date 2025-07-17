@@ -710,21 +710,28 @@ header.scrolled {
 /* 移動設備滾動條樣式 */
 @media (max-width: 991px) {
     .message-content::-webkit-scrollbar {
-        width: 4px;
+        width: 6px;
+        background-color: transparent;
     }
     
     .message-content::-webkit-scrollbar-track {
         background: rgba(247, 188, 81, 0.1);
-        border-radius: 2px;
+        border-radius: 3px;
+        margin: 2px 0;
     }
     
     .message-content::-webkit-scrollbar-thumb {
-        background: rgba(247, 188, 81, 0.4);
-        border-radius: 2px;
+        background: rgba(247, 188, 81, 0.5);
+        border-radius: 3px;
+        border: 1px solid rgba(247, 188, 81, 0.2);
     }
     
     .message-content::-webkit-scrollbar-thumb:hover {
-        background: rgba(247, 188, 81, 0.6);
+        background: rgba(247, 188, 81, 0.7);
+    }
+    
+    .message-content::-webkit-scrollbar-corner {
+        background: transparent;
     }
 }
 
@@ -1243,8 +1250,11 @@ footer {
     }
     
     .message-content {
-        overflow-y: auto; /* 平板設備啟用垂直滾動 */
-        padding-right: 8px; /* 為滾動條留出空間 */
+        overflow-y: scroll; /* 強制顯示滾動條 */
+        padding-right: 10px; /* 為滾動條留出空間 */
+        -webkit-overflow-scrolling: touch; /* iOS 平滑滾動 */
+        scrollbar-width: thin; /* Firefox 滾動條 */
+        scrollbar-color: rgba(247, 188, 81, 0.5) rgba(247, 188, 81, 0.1); /* Firefox 滾動條顏色 */
     }
     
     .message-content p {
@@ -1269,8 +1279,11 @@ footer {
     }
     
     .message-content {
-        overflow-y: auto; /* 手機設備啟用垂直滾動 */
-        padding-right: 6px; /* 為滾動條留出空間 */
+        overflow-y: scroll; /* 強制顯示滾動條 */
+        padding-right: 8px; /* 增加右邊距 */
+        -webkit-overflow-scrolling: touch; /* iOS 平滑滾動 */
+        scrollbar-width: thin; /* Firefox 滾動條 */
+        scrollbar-color: rgba(247, 188, 81, 0.5) rgba(247, 188, 81, 0.1); /* Firefox 滾動條顏色 */
     }
     
     .message-content p {

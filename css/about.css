@@ -13,6 +13,7 @@ body {
     font-family: 'Noto Sans TC', sans-serif;
     line-height: 1.6;
     color: #333;
+    overflow-x: hidden; /* 防止水平滾動 */
 }
 
 /* ===== FONT DEFINITIONS ===== */
@@ -554,8 +555,9 @@ header.scrolled {
     background-color: #fff;
 }
 
+/* 移除固定寬度限制，讓它響應式 */
 .about-team .col-md-5 {
-    max-width: 320px;
+    /* max-width: 320px; */
 }
 
 /* Team photos container */
@@ -655,6 +657,8 @@ header.scrolled {
     flex-direction: column;
     justify-content: center;
     min-height: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .team-text h3 {
@@ -662,11 +666,16 @@ header.scrolled {
     font-weight: 300;
     margin-bottom: 2rem;
     color: #333;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 /* ===== TEXT CAROUSEL STYLES ===== */
 .text-carousel-container {
     position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .carousel-navigation {
@@ -676,6 +685,8 @@ header.scrolled {
     margin-top: 1rem; /* 減少與文字的間距 */
     position: relative;
     z-index: 5;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .carousel-btn {
@@ -695,6 +706,8 @@ header.scrolled {
     user-select: none;
     pointer-events: auto;
     outline: none;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .carousel-btn.active {
@@ -702,6 +715,8 @@ header.scrolled {
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(247, 188, 81, 0.3);
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .carousel-btn:hover {
@@ -709,11 +724,15 @@ header.scrolled {
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(247, 188, 81, 0.3);
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .carousel-btn:not(.active):hover {
     background-color: rgba(247, 188, 81, 0.1);
     color: #f7bc51;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .carousel-content {
@@ -721,6 +740,8 @@ header.scrolled {
     height: 50vh; /* 桌面版降低高度 */
     min-height: 450px; /* 降低最小高度 */
     overflow: hidden;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .message-content {
@@ -736,6 +757,8 @@ header.scrolled {
     line-height: 1.6;
     overflow: hidden; /* 桌面版保持隱藏 */
     padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .message-content.active {
@@ -743,26 +766,36 @@ header.scrolled {
     visibility: visible;
     transform: translateX(0);
     position: absolute; /* 保持絕對定位 */
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .message-content p {
     font-size: 1rem;
     color: #666;
     margin-bottom: 1.4rem; /* 稍微增加段落間距，讓文字更易讀 */
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .message-content strong {
     color: #666;
     font-weight: 500;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .message-content a {
     text-decoration: none;
     transition: color 0.3s ease;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 .message-content a:hover {
     color: #e0a800 !important;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 /* ===== CONTACT SECTION ===== */
@@ -1094,7 +1127,7 @@ footer {
     .about-team .container {
         max-width: 100%;
         padding-left: 15px;
-        padding-right: 0px;
+        padding-right: 15px;
     }
 
     .story-grid {
@@ -1203,7 +1236,7 @@ footer {
     .about-team .container {
         max-width: 100%;
         padding-left: 10px;
-        padding-right: 0px;
+        padding-right: 10px;
     }
 
     /* Footer */
@@ -1249,23 +1282,24 @@ footer {
     .message-content {
         padding-left: 15px;
         padding-right: 15px;
+        box-sizing: border-box;
     }
     
     .message-content::-webkit-scrollbar {
-        width: 6px;
+        width: 4px;
         background-color: transparent;
     }
     
     .message-content::-webkit-scrollbar-track {
         background: rgba(247, 188, 81, 0.1);
-        border-radius: 3px;
+        border-radius: 2px;
         margin: 2px 0;
     }
     
     .message-content::-webkit-scrollbar-thumb {
         background: rgba(247, 188, 81, 0.5);
-        border-radius: 3px;
-        border: 1px solid rgba(247, 188, 81, 0.2);
+        border-radius: 2px;
+        border: none;
     }
     
     .message-content::-webkit-scrollbar-thumb:hover {
@@ -1282,6 +1316,7 @@ footer {
     .carousel-content {
         height: 55vh;
         min-height: 400px;
+        overflow: hidden;
     }
     
     .message-content {
@@ -1291,6 +1326,7 @@ footer {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         scrollbar-color: rgba(247, 188, 81, 0.5) rgba(247, 188, 81, 0.1);
+        box-sizing: border-box;
     }
 }
 
@@ -1299,6 +1335,7 @@ footer {
     .carousel-content {
         height: 60vh;
         min-height: 380px;
+        overflow: hidden;
     }
     
     .message-content {
@@ -1308,6 +1345,7 @@ footer {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         scrollbar-color: rgba(247, 188, 81, 0.5) rgba(247, 188, 81, 0.1);
+        box-sizing: border-box;
     }
 }
 
@@ -1316,6 +1354,7 @@ footer {
     .carousel-content {
         height: 65vh;
         min-height: 350px;
+        overflow: hidden;
     }
     
     .message-content {
@@ -1325,6 +1364,7 @@ footer {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
         scrollbar-color: rgba(247, 188, 81, 0.5) rgba(247, 188, 81, 0.1);
+        box-sizing: border-box;
     }
     
     .carousel-btn {

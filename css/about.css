@@ -777,7 +777,7 @@ header.scrolled {
 }
 
 .message-content p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #666;
     margin-bottom: 1.4rem; /* 稍微增加段落間距，讓文字更易讀 */
     box-sizing: border-box;

@@ -571,11 +571,6 @@ header.scrolled {
     z-index: 1;
 }
 
-/* 移除固定寬度限制，讓它響應式 */
-.about-team .col-md-5 {
-    /* max-width: 320px; */
-}
-
 /* Team photos container */
 .about-team .col-lg-6:first-child {
     display: flex;

@@ -551,8 +551,10 @@ header.scrolled {
 
 /* ===== TEAM SECTION ===== */
 .about-team {
-    padding: 80px 0;
+    padding: 100px 0;
     background-color: #fff;
+    position: relative;
+    z-index: 1;
 }
 
 /* 移除固定寬度限制，讓它響應式 */
@@ -655,8 +657,8 @@ header.scrolled {
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-height: 100%;
+    justify-content: flex-start;
+    min-height: auto;
     box-sizing: border-box;
     max-width: 100%;
 }
@@ -674,7 +676,7 @@ header.scrolled {
 .text-carousel-container {
     position: relative;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: visible;
     max-width: 100%;
 }
 
@@ -737,11 +739,13 @@ header.scrolled {
 
 .carousel-content {
     position: relative;
-    height: 50vh; /* 桌面版降低高度 */
-    min-height: 450px; /* 降低最小高度 */
-    overflow: hidden;
+    height: auto;
+    min-height: 400px;
+    overflow: visible;
     box-sizing: border-box;
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .message-content {
@@ -749,25 +753,27 @@ header.scrolled {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s ease;
     transform: translateX(20px);
     line-height: 1.6;
-    overflow: hidden; /* 桌面版保持隱藏 */
+    overflow: visible;
     padding: 0;
     box-sizing: border-box;
     max-width: 100%;
+    z-index: 1;
 }
 
 .message-content.active {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
-    position: absolute; /* 保持絕對定位 */
+    position: relative;
     box-sizing: border-box;
     max-width: 100%;
+    z-index: 2;
 }
 
 .message-content p {
@@ -802,6 +808,8 @@ header.scrolled {
 .about-contact {
     padding: 100px 0;
     background-color: #f9f9f9;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-info {
@@ -1277,55 +1285,18 @@ footer {
 
 /* ===== TEXT CAROUSEL RESPONSIVE STYLES ===== */
 
-/* 移動設備滾動條樣式 */
-@media (max-width: 991px) {
-    .message-content {
-        padding-left: 15px;
-        padding-right: 15px;
-        box-sizing: border-box;
-    }
-    
-    .message-content::-webkit-scrollbar {
-        width: 4px;
-        background-color: transparent;
-    }
-    
-    .message-content::-webkit-scrollbar-track {
-        background: rgba(247, 188, 81, 0.1);
-        border-radius: 2px;
-        margin: 2px 0;
-    }
-    
-    .message-content::-webkit-scrollbar-thumb {
-        background: rgba(247, 188, 81, 0.5);
-        border-radius: 2px;
-        border: none;
-    }
-    
-    .message-content::-webkit-scrollbar-thumb:hover {
-        background: rgba(247, 188, 81, 0.7);
-    }
-    
-    .message-content::-webkit-scrollbar-corner {
-        background: transparent;
-    }
-}
-
 /* 平板版 (768px - 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
     .carousel-content {
-        height: 55vh;
-        min-height: 400px;
-        overflow: hidden;
+        height: auto;
+        min-height: 350px;
+        overflow: visible;
     }
     
     .message-content {
-        overflow-y: scroll;
+        overflow: visible;
         padding-left: 20px;
         padding-right: 20px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(247, 188, 81, 0.5) rgba(247, 188, 81, 0.1);
         box-sizing: border-box;
     }
 }
@@ -1333,18 +1304,15 @@ footer {
 /* 手機版 (576px - 767px) */
 @media (min-width: 576px) and (max-width: 767px) {
     .carousel-content {
-        height: 60vh;
-        min-height: 380px;
-        overflow: hidden;
+        height: auto;
+        min-height: 300px;
+        overflow: visible;
     }
     
     .message-content {
-        overflow-y: scroll;
+        overflow: visible;
         padding-left: 15px;
         padding-right: 15px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(247, 188, 81, 0.5) rgba(247, 188, 81, 0.1);
         box-sizing: border-box;
     }
 }
@@ -1352,18 +1320,15 @@ footer {
 /* 小手機版 (400px - 575px) */
 @media (min-width: 400px) and (max-width: 575px) {
     .carousel-content {
-        height: 65vh;
-        min-height: 350px;
-        overflow: hidden;
+        height: auto;
+        min-height: 280px;
+        overflow: visible;
     }
     
     .message-content {
-        overflow-y: scroll;
+        overflow: visible;
         padding-left: 12px;
         padding-right: 12px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(247, 188, 81, 0.5) rgba(247, 188, 81, 0.1);
         box-sizing: border-box;
     }
     

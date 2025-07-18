@@ -254,8 +254,8 @@ body {
 }
 
 .story-image:hover .overlay-content span {
-    background: #fff;
-    color: #333;
+    background: transparent;
+    color: #fff;
 }
 
 .story-text {
@@ -279,7 +279,7 @@ body {
 
 .story-text p {
     font-family: "Noto Sans TC", sans-serif;
-    font-size: 1rem;
+    font-size: 0.875rem; /* 14px */
     font-weight: 300;
     line-height: 1.8;
     color: #666;
@@ -369,7 +369,7 @@ body {
 
 .team-text h3 {
     font-family: 'ABeeZee', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: 400;
     color: #333;
     margin-bottom: 2rem;
@@ -613,11 +613,11 @@ body {
     }
 
     .about-hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 1.25rem; /* 20px */
     }
 
     .about-hero-content p {
-        font-size: 1.2rem;
+        font-size: 0.9375rem; /* 15px */
     }
     
     .about-story .container,
@@ -627,6 +627,22 @@ body {
     
     .story-text {
         margin-top: 2rem;
+    }
+    
+    .story-text p {
+        font-size: 0.75rem; /* 12px */
+    }
+    
+    .team-text h3 {
+        font-size: 0.75rem; /* 12px */
+    }
+    
+    .member-info h3 {
+        font-size: 1rem; /* 16px */
+    }
+    
+    .member-info p {
+        font-size: 0.75rem; /* 12px */
     }
     
     .member-image {
@@ -642,15 +658,27 @@ body {
     
     /* About Hero Section */
     .about-hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.125rem; /* 18px */
     }
 
     .about-hero-content p {
-        font-size: 1rem;
+        font-size: 0.8125rem; /* 13px */
+    }
+    
+    .story-text p {
+        font-size: 0.625rem; /* 10px */
     }
     
     .team-text h3 {
-        font-size: 1.8rem;
+        font-size: 0.625rem; /* 10px */
+    }
+    
+    .member-info h3 {
+        font-size: 0.875rem; /* 14px */
+    }
+    
+    .member-info p {
+        font-size: 0.625rem; /* 10px */
     }
     
     .section-title {

@@ -187,17 +187,20 @@ body {
     align-items: flex-start;
     justify-content: center;
     height: 100%;
+    padding-top: 0;
 }
 
 .about-story .col-lg-6:first-child .row {
     width: 100%;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .about-story .col-lg-6:first-child .col-12 {
     margin-bottom: 2rem;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .about-story .col-lg-6:first-child .col-12:last-child {
@@ -271,15 +274,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
     min-height: 100%;
     height: 100%;
-    padding-top: 0;
+    padding: 1.5rem 0;
     max-width: 600px;
     margin: 0 auto;
 }
 
 .story-text h3 {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 300;
     margin-bottom: 1.5rem;
     color: #333;
@@ -324,7 +328,7 @@ body {
 /* Team photos container */
 .about-team .col-lg-6:first-child {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     height: 100%;
 }
@@ -332,12 +336,14 @@ body {
 .about-team .col-lg-6:first-child .row {
     width: 100%;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .about-team .col-lg-6:first-child .col-12 {
     margin-bottom: 1.2rem; /* 調整照片之間的間距為1.2rem */
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .about-team .col-lg-6:first-child .col-12:last-child {
@@ -417,10 +423,11 @@ body {
 
 /* Team Text Styling */
 .team-text {
-    padding: 0;
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
     min-height: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -429,12 +436,19 @@ body {
 }
 
 .team-text h3 {
-    font-size: 2.2rem;
+    font-size: 1.2rem;
     font-weight: 300;
     margin-bottom: 2rem;
     color: #333;
     box-sizing: border-box;
     max-width: 100%;
+}
+
+.team-text p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 2rem;
 }
 
 /* ===== TEXT CAROUSEL STYLES ===== */
@@ -692,6 +706,48 @@ body {
     .contact-info {
         grid-template-columns: 1fr 1fr;
     }
+    
+    /* 桌面版文字容器對齊優化 */
+    .story-text,
+    .team-text {
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0;
+    }
+    
+    /* 桌面版圖片容器對齊 */
+    .about-story .col-lg-6:first-child {
+        align-items: flex-start;
+        padding-top: 0;
+    }
+    
+    .about-team .col-lg-6:first-child {
+        align-items: center;
+    }
+    
+    .about-story .col-lg-6:first-child .row,
+    .about-team .col-lg-6:first-child .row {
+        align-items: flex-start;
+    }
+
+    .about-story .row.align-items-start {
+      align-items: stretch !important;
+    }
+    .about-story .col-lg-6 {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .about-story .col-lg-6:first-child .row {
+      height: 100%;
+    }
+    .story-image {
+      flex: 1 1 auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
 }
 
 /* Tablet Navigation (768px-991px) */
@@ -727,11 +783,11 @@ body {
     }
 
     .about-hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 1.25rem; /* 20px */
     }
 
     .about-hero-content p {
-        font-size: 1.2rem;
+        font-size: 0.9375rem; /* 15px */
     }
 
     /* 修正container在平板版的設定 */
@@ -751,6 +807,31 @@ body {
 
     .story-text {
         text-align: center;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.5rem 0;
+    }
+    
+    .team-text {
+        text-align: center;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    /* 平板版圖片容器對齊 */
+    .about-story .col-lg-6:first-child {
+        align-items: flex-start;
+        padding-top: 0.5rem;
+    }
+    
+    .about-team .col-lg-6:first-child {
+        align-items: center;
+    }
+    
+    .about-story .col-lg-6:first-child .row,
+    .about-team .col-lg-6:first-child .row {
+        align-items: center;
     }
 
     .team-grid,
@@ -879,6 +960,29 @@ body {
     max-width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+  
+  .story-text,
+  .team-text {
+    padding: 0.2rem 0 !important;
+    text-align: center !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+  
+  /* 手機版圖片容器對齊 */
+  .about-story .col-lg-6:first-child {
+    align-items: flex-start !important;
+    padding-top: 0 !important;
+  }
+  
+  .about-team .col-lg-6:first-child {
+    align-items: center !important;
+  }
+  
+  .about-story .col-lg-6:first-child .row,
+  .about-team .col-lg-6:first-child .row {
+    align-items: center !important;
   }
 }
 

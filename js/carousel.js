@@ -161,14 +161,22 @@ function scrollToTextTop() {
         if (teamTextElement) {
             // 獲取元素位置
             const elementTop = teamTextElement.offsetTop;
-            // 添加偏移量避免被header遮住（約100px的間距）
-            const offset = 100;
+            // 添加偏移量避免被header遮住（約20px的間距）
+            const offset = 20;
             
-            // 使用window.scrollTo進行精確滾動
+            // 先強制滾動到頂部重置位置，然後滾動到目標位置
             window.scrollTo({
-                top: elementTop - offset,
-                behavior: 'smooth'
+                top: 0,
+                behavior: 'instant'
             });
+            
+            // 使用setTimeout確保重置完成後再滾動到目標位置
+            setTimeout(() => {
+                window.scrollTo({
+                    top: elementTop - offset,
+                    behavior: 'smooth'
+                });
+            }, 50);
         }
     }
 }

@@ -159,10 +159,15 @@ function scrollToTextTop() {
     if (window.innerWidth <= 768) {
         const teamTextElement = document.querySelector('.team-text');
         if (teamTextElement) {
-            // 使用平滑滾動到文字區域頂部
-            teamTextElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            // 獲取元素位置
+            const elementTop = teamTextElement.offsetTop;
+            // 添加偏移量避免被header遮住（約100px的間距）
+            const offset = 100;
+            
+            // 使用window.scrollTo進行精確滾動
+            window.scrollTo({
+                top: elementTop - offset,
+                behavior: 'smooth'
             });
         }
     }

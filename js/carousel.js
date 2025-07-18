@@ -62,6 +62,9 @@ function goToSlide(slideIndex) {
     showSlide(currentSlide);
     updateButtons();
     
+    // 在手機版下，自動滾動到文字區域的頂部
+    scrollToTextTop();
+    
     console.log('切換到幻燈片:', currentSlide);
 }
 
@@ -113,6 +116,9 @@ function nextSlide() {
     currentSlide = (currentSlide + 1) % totalSlides;
     showSlide(currentSlide);
     updateButtons();
+    
+    // 在手機版下，自動滾動到文字區域的頂部
+    scrollToTextTop();
 }
 
 /**
@@ -122,6 +128,9 @@ function prevSlide() {
     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     showSlide(currentSlide);
     updateButtons();
+    
+    // 在手機版下，自動滾動到文字區域的頂部
+    scrollToTextTop();
 }
 
 /**
@@ -139,6 +148,23 @@ function handleKeyboard(e) {
             e.preventDefault();
             nextSlide();
             break;
+    }
+}
+
+/**
+ * 滾動到文字區域頂部
+ */
+function scrollToTextTop() {
+    // 檢查是否為手機版（螢幕寬度小於768px）
+    if (window.innerWidth <= 768) {
+        const teamTextElement = document.querySelector('.team-text');
+        if (teamTextElement) {
+            // 使用平滑滾動到文字區域頂部
+            teamTextElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     }
 }
 

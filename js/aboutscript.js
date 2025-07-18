@@ -73,7 +73,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const navbarToggler = document.querySelector('.navbar-toggler');
                 const navbarCollapse = document.querySelector('.navbar-collapse');
                 if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                    navbarCollapse.classList.remove('show');
+                    // 使用Bootstrap的方法關閉選單
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
                 }
             }
         });

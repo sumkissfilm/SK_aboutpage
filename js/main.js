@@ -29,17 +29,13 @@ function initNavigation() {
     
     console.log('初始化導航選單');
     
-    // 綁定漢堡選單點擊事件
-    navbarToggler.addEventListener('click', function() {
-        this.classList.toggle('collapsed');
-        navbarCollapse.classList.toggle('show');
-        
-        // 防止背景滾動
-        if (navbarCollapse.classList.contains('show')) {
-            document.body.classList.add('menu-open');
-        } else {
-            document.body.classList.remove('menu-open');
-        }
+    // 監聽Bootstrap選單狀態變化
+    navbarCollapse.addEventListener('shown.bs.collapse', function() {
+        document.body.classList.add('menu-open');
+    });
+    
+    navbarCollapse.addEventListener('hidden.bs.collapse', function() {
+        document.body.classList.remove('menu-open');
     });
     
     // 點擊選單外區域關閉選單
@@ -48,9 +44,11 @@ function initNavigation() {
             !navbarCollapse.contains(event.target) && 
             navbarCollapse.classList.contains('show')) {
             
-            navbarToggler.classList.add('collapsed');
-            navbarCollapse.classList.remove('show');
-            document.body.classList.remove('menu-open');
+            // 使用Bootstrap的方法關閉選單
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                toggle: false
+            });
+            bsCollapse.hide();
         }
     });
     
@@ -59,12 +57,26 @@ function initNavigation() {
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             if (window.innerWidth <= 991) { // 只在行動版關閉選單
-                navbarToggler.classList.add('collapsed');
-                navbarCollapse.classList.remove('show');
-                document.body.classList.remove('menu-open');
+                // 使用Bootstrap的方法關閉選單
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide();
             }
         });
     });
+    
+    // 點擊關閉按鈕關閉選單
+    const menuCloseBtn = document.querySelector('.menu-close-btn');
+    if (menuCloseBtn) {
+        menuCloseBtn.addEventListener('click', function() {
+            // 使用Bootstrap的方法關閉選單
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                toggle: false
+            });
+            bsCollapse.hide();
+        });
+    }
 }
 
 /**

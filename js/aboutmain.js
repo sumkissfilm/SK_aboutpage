@@ -49,24 +49,17 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`子菜單項數量:`, items.length);
     });
 
-    // Mobile menu toggle
+    // Mobile menu toggle - 使用Bootstrap處理，這裡只監聽狀態變化
     if (navbarToggler && navbarCollapse) {
-        navbarToggler.addEventListener('click', function() {
-            this.classList.toggle('collapsed');
-            navbarCollapse.classList.toggle('show');
+        // 監聽Bootstrap選單狀態變化
+        navbarCollapse.addEventListener('shown.bs.collapse', function() {
+            document.body.classList.add('menu-open');
+        });
+        
+        navbarCollapse.addEventListener('hidden.bs.collapse', function() {
+            document.body.classList.remove('menu-open');
         });
     }
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (navbarCollapse && navbarToggler) {
-            const isClickInside = navbarCollapse.contains(event.target) || navbarToggler.contains(event.target);
-            if (!isClickInside && navbarCollapse.classList.contains('show')) {
-                navbarToggler.classList.add('collapsed');
-                navbarCollapse.classList.remove('show');
-            }
-        }
-    });
 
     // Dropdown menu functionality
     dropdowns.forEach(dropdown => {
@@ -102,8 +95,14 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             if (navContainer) navContainer.classList.remove('active');
             if (navOverlay) navOverlay.classList.remove('active');
-            if (navbarCollapse) navbarCollapse.classList.remove('show');
-            if (navbarToggler) navbarToggler.classList.add('collapsed');
+            
+            // 使用Bootstrap的方法關閉選單
+            if (navbarCollapse) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            }
             
             dropdowns.forEach(dropdown => {
                 dropdown.classList.remove('active');
@@ -118,7 +117,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth > 900) {
             if (navContainer) navContainer.classList.remove('active');
             if (navOverlay) navOverlay.classList.remove('active');
-            if (navbarCollapse) navbarCollapse.classList.remove('show');
+            
+            // 使用Bootstrap的方法關閉選單
+            if (navbarCollapse) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            }
             
             dropdowns.forEach(dropdown => {
                 dropdown.classList.remove('active');

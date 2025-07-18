@@ -770,7 +770,7 @@ body {
 /* 平板版 (768px - 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
     .carousel-content {
-        height: 600px; /* 平板版高度 */
+        height: 450px; /* 平板版高度 */
         overflow: hidden;
         width: 100%;
         max-width: 100%;
@@ -789,7 +789,7 @@ body {
 /* 手機版 (576px - 767px) */
 @media (min-width: 576px) and (max-width: 767px) {
     .carousel-content {
-        height: 600px; /* 手機版高度 */
+        height: 400px; /* 手機版高度 */
         overflow: hidden;
         width: 100%;
         max-width: 100%;
@@ -808,7 +808,7 @@ body {
 /* 小手機版 (400px - 575px) */
 @media (min-width: 400px) and (max-width: 575px) {
     .carousel-content {
-        height: 550px; /* 小手機版高度 */
+        height: 400px; /* 小手機版高度 */
         overflow: hidden;
         width: 100%;
         max-width: 100%;

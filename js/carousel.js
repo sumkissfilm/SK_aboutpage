@@ -155,20 +155,20 @@ function handleKeyboard(e) {
  * 滾動到文字區域頂部
  */
 function scrollToTextTop() {
-    // 檢查是否為手機版（螢幕寬度小於768px）
-    if (window.innerWidth <= 768) {
-        const teamTextElement = document.querySelector('.team-text');
-        if (teamTextElement) {
+    const teamTextElement = document.querySelector('.team-text');
+    if (teamTextElement) {
+        // 先強制滾動到文字容器頂部重置位置（所有斷點都適用）
+        teamTextElement.scrollTo({
+            top: 0,
+            behavior: 'instant'
+        });
+        
+        // 檢查是否為手機版（螢幕寬度小於768px）
+        if (window.innerWidth <= 768) {
             // 獲取元素位置
             const elementTop = teamTextElement.offsetTop;
-            // 添加偏移量避免被header遮住（約20px的間距）
-            const offset = 20;
-            
-            // 先強制滾動到頂部重置位置，然後滾動到目標位置
-            window.scrollTo({
-                top: 0,
-                behavior: 'instant'
-            });
+            // 添加偏移量避免被header遮住（約5px的間距）
+            const offset = 5;
             
             // 使用setTimeout確保重置完成後再滾動到目標位置
             setTimeout(() => {

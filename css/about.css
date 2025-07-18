@@ -619,7 +619,7 @@ header.scrolled {
 
 .member-image {
     position: relative;
-    padding-top: 100%; /* 調整照片高度為100% */
+    padding-top: 80%; /* 調整為5:4橫式照片比例 */
     overflow: hidden;
 }
 
@@ -1171,7 +1171,7 @@ footer {
     }
     
     .member-image {
-        padding-top: 100%; /* 調整移動設備照片高度為100% */
+        padding-top: 80%; /* 調整移動設備照片高度為5:4比例 */
     }
 }
 

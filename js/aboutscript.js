@@ -9,19 +9,7 @@ const fadeInOptions = {
 
 /* ===== DOM Elements ===== */
 const header = document.querySelector('header');
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-const navLinksItems = document.querySelectorAll('.nav-links li');
-const imageItems = document.querySelectorAll('.body004 .image-item');
-const instagramGrid = document.querySelector('.instagram-grid');
-const dropdowns = document.querySelectorAll('.dropdown');
-const hero = document.querySelector('.hero');
-
-const instagramPosts = [
-    'https://www.instagram.com/p/C4QZQYvPJ7H/embed',
-    'https://www.instagram.com/p/C4QZQYvPJ7H/embed',
-    'https://www.instagram.com/p/C4QZQYvPJ7H/embed'
-];
+const hero = document.querySelector('.about-hero');
 
 /* ===== Functions ===== */
 function handleScroll() {
@@ -32,57 +20,9 @@ function handleScroll() {
     }
 }
 
-function toggleMenu() {
-    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', !isExpanded);
-    menuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-}
-
-function closeMenuOnClick() {
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.classList.remove('active');
-    navLinks.classList.remove('active');
-    document.body.classList.remove('menu-open');
-}
-
-function handleImageAnimation(entries, observer) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}
-
-function loadInstagramPosts() {
-    if (!instagramGrid) return;
-    
-    instagramPosts.forEach((postUrl, index) => {
-        const blockquote = document.createElement('blockquote');
-        blockquote.className = 'instagram-media';
-        blockquote.setAttribute('data-instgrm-permalink', postUrl);
-        blockquote.setAttribute('data-instgrm-version', '14');
-        instagramGrid.appendChild(blockquote);
-    });
-}
-
-function initializeInstagram() {
-    if (window.instgrm) {
-        window.instgrm.Embeds.process();
-    }
-}
-
-function handleDropdownClick(e) {
-    if (window.innerWidth <= 900) {
-        e.preventDefault();
-        const dropdown = e.currentTarget;
-        dropdown.classList.toggle('active');
-    }
-}
-
 function handleHeaderScroll() {
+    if (!hero) return;
+    
     const heroBottom = hero.offsetTop + hero.offsetHeight;
     if (window.scrollY > heroBottom) {
         header.classList.add('scrolled');
@@ -93,32 +33,9 @@ function handleHeaderScroll() {
 
 /* ===== Event Listeners ===== */
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化漢堡選單
-    if (menuToggle) {
-        menuToggle.addEventListener('click', toggleMenu);
-    }
-
-    // 初始化導航連結
-    if (navLinksItems) {
-        navLinksItems.forEach(link => {
-            link.addEventListener('click', closeMenuOnClick);
-        });
-    }
-
-    // 初始化下拉選單
-    if (dropdowns) {
-        dropdowns.forEach(dropdown => {
-            dropdown.addEventListener('click', handleDropdownClick);
-        });
-    }
-
     // 初始化滾動事件
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('scroll', handleHeaderScroll);
-
-    // 初始化 Instagram
-    loadInstagramPosts();
-    initializeInstagram();
 
     // 導航欄滾動效果
     const navbar = document.querySelector('.navbar');
@@ -185,58 +102,23 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 
-    // Team member hover effects
-    const teamMembers = document.querySelectorAll('.team-member');
-    
-    teamMembers.forEach(member => {
-        member.addEventListener('mouseenter', () => {
-            member.querySelector('.member-info').style.transform = 'translateY(0)';
-        });
-
-        member.addEventListener('mouseleave', () => {
-            member.querySelector('.member-info').style.transform = 'translateY(100%)';
-        });
-    });
+    /* 移除團隊成員hover效果，因為HTML使用Bootstrap定位 */
 
     // Story image hover effect
     const storyImages = document.querySelectorAll('.story-image');
     
     storyImages.forEach(image => {
-        image.addEventListener('mouseenter', () => {
-            image.querySelector('img').style.transform = 'scale(1.05)';
-        });
+        const img = image.querySelector('img');
+        if (img) {
+            image.addEventListener('mouseenter', () => {
+                img.style.transform = 'scale(1.05)';
+            });
 
-        image.addEventListener('mouseleave', () => {
-            image.querySelector('img').style.transform = 'scale(1)';
-        });
+            image.addEventListener('mouseleave', () => {
+                img.style.transform = 'scale(1)';
+            });
+        }
     });
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Contact button hover effect
-    const contactButton = document.querySelector('.btn-contact');
-    if (contactButton) {
-        contactButton.addEventListener('mouseenter', () => {
-            contactButton.style.transform = 'translateY(-2px)';
-        });
-
-        contactButton.addEventListener('mouseleave', () => {
-            contactButton.style.transform = 'translateY(0)';
-        });
-    }
+    /* 移除未使用的按鈕效果，因為HTML使用Bootstrap按鈕 */
 });

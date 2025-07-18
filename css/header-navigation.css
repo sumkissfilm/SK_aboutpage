@@ -563,6 +563,7 @@ body.menu-open {
         font-weight: 500;    /* 字體粗細 */
         padding: 0.5rem 0;   /* 上下內距 */
         position: relative;  /* 相對定位 */
+        white-space: nowrap; /* 防止文字換行 */
     }
     
     .nav-link:hover {
@@ -592,7 +593,7 @@ body.menu-open {
     .navbar-collapse .social-icons a,
     .social-icons a {
         color: #000 !important;         /* 圖示顏色 */
-        font-size: 1rem !important;  /* 圖示大小 */
+        font-size: 1.25rem !important;  /* 圖示大小 - 與內聯樣式保持一致 */
         transition: color 0.3s ease !important; /* 顏色過渡效果 */
         width: 20px !important;         /* 連結寬度 */
         height: 20px !important;        /* 連結高度 */

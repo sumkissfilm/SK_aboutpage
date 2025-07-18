@@ -16,20 +16,31 @@
     <!-- ===== EXTERNAL STYLESHEETS ===== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <!-- ===== LOCAL STYLESHEETS ===== -->
     <!-- 主要樣式檔案 - 包含全域樣式、各區塊樣式、響應式設計 -->
-    <link rel="stylesheet" href="css/about.css">
-    <!-- 頁首導航樣式檔案 - 包含 header、導航列、漢堡選單、選單動畫、社群圖示 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 頁首導航樣式檔案 - 包含 header、導航列、漢堡選單、選單動畫 -->
     <link rel="stylesheet" href="css/header-navigation.css">
+    <!-- 社群媒體圖示樣式檔案 - 包含社群圖示樣式、響應式設計 -->
+    <link rel="stylesheet" href="css/social-icons.css">
     <!-- Footer 樣式檔案 - 包含頁尾樣式、響應式設計、無障礙功能 -->
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/about.css">
     <!-- YouTube 主題樣式檔案 - 包含 YouTube 嵌入影片樣式 -->
     <!-- 注意：此檔案目前不存在，YouTube 樣式已整合到 style.css 中 -->
 </head>
 <body>
    <!-- ===== HEADER & NAVIGATION ===== -->
+    <!--
+        Header 導覽列區塊
+        - 樣式主要由 css/header-navigation.css 控制
+        - 滾動超過 hero 區塊時，header 會自動加上 .scrolled 類別，顯示白色背景
+        - 相關 JS 控制於 js/scroll.js（負責滾動監聽與 class 切換）
+        - Bootstrap 負責響應式選單展開收合
+    -->
+    <!-- ===== HEADER & NAVIGATION ===== -->
     <!--
         Header 導覽列區塊
         - 樣式主要由 css/header-navigation.css 控制
@@ -102,8 +113,10 @@
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-12 text-center">
-                        <h1 class="display-4 fw-light text-white mb-4 animate-on-scroll">Summer Kisses</h1>
-                        <p class="lead text-white animate-on-scroll">『紀錄的不僅僅是你們，是情感，也是時間。』</p>
+                        <div class="about-hero-content">
+                            <h1 class="display-4 fw-light text-white mb-4 animate-on-scroll">Summer Kisses</h1>
+                            <p class="lead text-white animate-on-scroll">『紀錄的不僅僅是你們，是情感，也是時間。』</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -117,7 +130,7 @@
                         <h2 class="section-title animate-on-scroll">About Summer Kisses</h2>
                     </div>
                 </div>
-                <div class="row align-items-center g-5">
+                <div class="row align-items-start g-5">
                     <div class="col-lg-6">
                         <div class="row g-4">
                             <div class="col-12">
@@ -152,7 +165,8 @@
                                 猶記 Summer Kisses 剛取好名，友人說：<br>
                                 <strong>『啊！夏天接吻好熱，不能是冬天嗎？』</strong><br>
                                 我只笑著說，<br>
-                                <strong>『因為我記憶裡最浪漫的吻，是在夏日正午，不管不顧，用力愛著的時候。』</strong><br>
+                                <strong>『因為我記憶裡最浪漫的吻』</strong><br>
+                                <strong>『是在夏日正午不管不顧，用力愛著的時候。』</strong><br>
                                 當業界正前仆後繼追求華麗轉場、高級質感時，<br>
                                 我們想做產業裡特別的「野孩子」，<br>
                                 讓你們流汗、被海水浸濕、被泥土包圍。<br>
@@ -169,11 +183,11 @@
                                 有時甚至不引導，讓你們自由打鬧、讓你們放空。<br>
                                 我們總是跟客人說：<br>
                                 <strong>『當你忘了攝影機，故事便開始了。』</strong></p>
-                            <ul class="list-unstyled">
+                            <!--<ul class="list-unstyled">
                                 <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i>愛情故事</li>
                                 <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i>情侶寫真</li>
                                 <li class="mb-2"><i class="fas fa-check-circle text-warning me-2"></i>登記紀實</li>
-                            </ul>
+                            </ul>-->
                         </div>
                     </div>
                 </div>
@@ -185,10 +199,10 @@
             <div class="container">
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-8 text-center">
-                        <h2 class="section-title animate-on-scroll">Our Storytellers</h2>
+                        <h2 class="section-title animate-on-scroll">Storytellers</h2>
                     </div>
                 </div>
-                <div class="row align-items-center g-5">
+                <div class="row align-items-start g-5">
                     <div class="col-lg-6">
                         <div class="row g-4">
                             <div class="col-12">
@@ -372,13 +386,14 @@
     </main>
 
     <!-- ===== FOOTER ===== -->
+    <!-- 頁尾區塊 - 使用 css/footer.css 中的 footer 相關樣式 -->
     <footer>
         <div class="footer-content">
             <!-- Contact Information -->
             <div class="footer-section">
                 <p>Instagram：<a href="https://www.instagram.com/sumkiss.film/">sumkiss.film</a></p>
                 <p>商業合作：<a href="mailto:sumkiss.film@gmail.com">sumkiss.film@gmail.com</a></p>
-                <p><a href="https://sumkissfilm.github.io/SK_home-page/">首頁</a></p>
+                <p><a href="https://sumkissfilm.github.io/homepage/">首頁</a></p>
             </div>
             
             <!-- Social Media Links -->
@@ -422,11 +437,11 @@
     <script src="js/main.js"></script>
     <!-- 滾動效果 JavaScript 檔案 - 專門處理頁首滾動背景色變化 -->
     <script src="js/scroll.js"></script>
+    <!-- About 頁面專用 JavaScript 檔案 - 包含滾動動畫、互動效果 -->
+    <script src="js/aboutscript.js"></script>
     <!-- Footer JavaScript 檔案 - 包含頁尾互動功能、動畫效果、無障礙功能 -->
     <script src="js/footer.js"></script>
-    <script src="js/aboutscript.js"></script>
-    <script src="js/aboutscroll.js"></script>
-    <script src="js/aboutmain.js"></script>
+    <!-- 輪播功能 JavaScript 檔案 - 處理文字輪播功能 -->
     <script src="js/carousel.js"></script>
     <script async src="//www.instagram.com/embed.js"></script>
 </body>
